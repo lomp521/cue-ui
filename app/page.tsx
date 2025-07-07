@@ -661,7 +661,7 @@ export default function BilliardsCompetitionApp() {
                     <h2 className="font-semibold text-gray-900 text-base leading-tight">{competition.title}</h2>
                   </div>
 
-                  <div className="flex gap-4 mb-3">
+                  <div className="flex gap-4 mb-0">
                     {/* Competition Image */}
                     <div className="relative">
                       <Image
@@ -681,18 +681,18 @@ export default function BilliardsCompetitionApp() {
 
                     <div className="flex-1 space-y-1">
                       {/* Project Tag */}
-                      <div className="flex items-center gap-2 text-l text-gray-600">
-                        <Badge variant="outline" className="text-l px-2 py-1">项目</Badge>
+                      <div className="flex items-center gap-2 text-xs text-gray-600">
+                        <span>项目:</span>
                         <span>{competition.format}</span>
                       </div>
 
                       {/* Type Tag */}
-                      <div className="flex items-center gap-2 text-l text-gray-600">
-                        <Badge variant="outline" className="text-l px-2 py-1">类型</Badge>
+                      <div className="flex items-center gap-2 text-xs text-gray-600">
+                        <span>类型:</span>
                         <span>{competition.competitionType}</span>
                       </div>
 
-                      <div className="flex items-center gap-1 text-l text-gray-600">
+                      <div className="flex items-center gap-1 text-xs text-gray-600">
                         <Calendar className="w-3 h-3" />
                         <span>{competition.time}</span>
                       </div>
@@ -705,7 +705,7 @@ export default function BilliardsCompetitionApp() {
                   </div>
 
                   {/* Prize Money Section - separate row */}
-                  <div className="mb-3 p-3 bg-gray-50 rounded-lg">
+                  <div className="mb-3 px-3 py-1 bg-gray-50 rounded-lg">
                     <div className="flex items-center justify-between text-xs">
                       <div className="flex items-center gap-1">
                         <Trophy className="w-4 h-4 text-yellow-500" />
