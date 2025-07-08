@@ -66,10 +66,16 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "iconPath": "static/tabbar/home.png",
-        "selectedIconPath": "static/tabbar/home-active.png",
+        "iconPath": "/static/wechat.png",
+        "selectedIconPath": "/static/chat.png",
         "text": "首页"
-      }
+      },
+	  {
+	    "pagePath": "pages/event-menu/event-menu",
+	    "iconPath": "/static/wechat.png",
+	    "selectedIconPath": "/static/chat.png",
+	    "text": "首页1"
+	  }
     ]
   },
   "uniIdRouter": {}

@@ -1,0 +1,292 @@
+
+.container {
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+.search-bar {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  background: white;
+  margin-bottom: 20rpx;
+}
+.search-input {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: #f8f9fa;
+  border-radius: 24rpx;
+  padding: 16rpx 24rpx;
+  margin-right: 20rpx;
+}
+.search-text {
+  margin-left: 16rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+.filter-btn {
+  padding: 16rpx;
+  background: #667eea;
+  border-radius: 12rpx;
+}
+.tabs {
+  display: flex;
+  background: white;
+  padding: 0 20rpx;
+  margin-bottom: 20rpx;
+}
+.tab-item {
+  flex: 1;
+  text-align: center;
+  padding: 24rpx 0;
+  font-size: 28rpx;
+  color: #666;
+  border-bottom: 4rpx solid transparent;
+}
+.tab-item.active {
+  color: #667eea;
+  border-bottom-color: #667eea;
+  font-weight: 600;
+}
+.carousel {
+  height: 320rpx;
+  margin-bottom: 20rpx;
+}
+.carousel-item {
+  position: relative;
+  height: 100%;
+  border-radius: 16rpx;
+  overflow: hidden;
+  margin: 0 20rpx;
+}
+.carousel-image {
+  width: 100%;
+  height: 100%;
+}
+.carousel-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  padding: 40rpx 24rpx 24rpx;
+  color: white;
+}
+.carousel-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8rpx;
+}
+.carousel-subtitle {
+  font-size: 24rpx;
+  opacity: 0.9;
+}
+.features {
+  display: flex;
+  padding: 0 20rpx 20rpx;
+}
+.feature-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24rpx;
+  background: white;
+  border-radius: 16rpx;
+  margin-right: 20rpx;
+}
+.feature-item:last-child {
+  margin-right: 0;
+}
+.feature-icon {
+  font-size: 48rpx;
+  margin-bottom: 16rpx;
+}
+.feature-text {
+  font-size: 24rpx;
+  color: #666;
+}
+.content {
+  padding: 0 20rpx;
+}
+.competition-card {
+  margin-bottom: 24rpx;
+}
+.competition-header {
+  display: flex;
+  margin-bottom: 20rpx;
+}
+.competition-image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 12rpx;
+  margin-right: 20rpx;
+}
+.competition-info {
+  flex: 1;
+}
+.competition-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  margin-bottom: 12rpx;
+  display: block;
+}
+.competition-meta {
+  display: flex;
+  margin-bottom: 12rpx;
+}
+.meta-item {
+  padding: 8rpx 16rpx;
+  background: #f0f0f0;
+  border-radius: 8rpx;
+  font-size: 20rpx;
+  margin-right: 12rpx;
+}
+.competition-details {
+  display: flex;
+  flex-direction: column;
+}
+.detail-item {
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 4rpx;
+}
+.competition-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20rpx;
+  border-top: 2rpx solid #f0f0f0;
+}
+.status-badge {
+  padding: 8rpx 16rpx;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  font-weight: 600;
+}
+.status-open {
+  background: #e8f5e8;
+  color: #52c41a;
+}
+.status-starting {
+  background: #fff7e6;
+  color: #fa8c16;
+}
+.participants {
+  font-size: 24rpx;
+  color: #666;
+}
+.ranking-card, .hall-card, .judge-card {
+  margin-bottom: 20rpx;
+}
+.ranking-content, .hall-content, .judge-content {
+  display: flex;
+  align-items: center;
+}
+.rank-number {
+  width: 60rpx;
+  height: 60rpx;
+  background: #667eea;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  margin-right: 20rpx;
+}
+.player-avatar, .judge-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.hall-image {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 12rpx;
+  margin-right: 20rpx;
+}
+.player-info, .hall-info, .judge-info {
+  flex: 1;
+}
+.player-name, .hall-name, .judge-name {
+  font-size: 32rpx;
+  font-weight: 600;
+  margin-bottom: 8rpx;
+  display: block;
+}
+.country {
+  margin-left: 12rpx;
+}
+.prize-amount, .hall-location, .hall-prize, .hall-desc, .judge-location, .judge-points {
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 4rpx;
+  display: block;
+}
+.judge-cert {
+  display: flex;
+  align-items: center;
+}
+.cert-text {
+  font-size: 24rpx;
+  color: #667eea;
+}
+.verified {
+  margin-left: 8rpx;
+  color: #52c41a;
+  font-weight: 600;
+}
+.event-card {
+  margin-bottom: 24rpx;
+}
+.event-header {
+  display: flex;
+  margin-bottom: 20rpx;
+}
+.event-image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 12rpx;
+  margin-right: 20rpx;
+}
+.event-info {
+  flex: 1;
+}
+.event-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  margin-bottom: 12rpx;
+  display: block;
+}
+.event-meta {
+  display: flex;
+  margin-bottom: 12rpx;
+}
+.event-time, .event-location {
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 4rpx;
+  display: block;
+}
+.event-result {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20rpx;
+  border-top: 2rpx solid #f0f0f0;
+}
+.rank-badge {
+  padding: 8rpx 16rpx;
+  background: #ffd700;
+  color: #8b4513;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  font-weight: 600;
+}
+.total-participants, .prize {
+  font-size: 24rpx;
+  color: #666;
+}
