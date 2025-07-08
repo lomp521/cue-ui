@@ -1,3 +1,6 @@
+"use client"
+
+import { useState } from "react"
 import Image from "next/image"
 import {
   Search,
@@ -20,10 +23,69 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { CarouselBanner } from "@/components/carousel-banner"
-import fs from "fs";
-import path from "path";
+import EventPublishingPage from "@/components/ui/event_page"
+import RefereeRegistration from "@/components/ui/refereeRegister"
+import EventPublishEntry from "@/components/ui/eventPublishEntry"
+import EventSimulation from "@/components/ui/eventSimulation"
+import BilliardHallRegistration from "@/components/ui/registerClub"
 
 export default function BilliardsCompetitionApp() {
+  // 页面状态管理
+  const [currentPage, setCurrentPage] = useState<
+    'main' | 'event-menu' | 'venue-certification' | 'referee-certification' | 'event-publishing' | 'event-simulation'
+  >('main')
+
+  // 页面导航函数
+  const navigateToEventMenu = () => {
+    console.log("navigateToEventMenu")
+    setCurrentPage('event-menu')
+  }
+
+  const navigateBack = () => {
+    setCurrentPage('main')
+  }
+
+  // 通用导航函数，处理不同功能页面的跳转
+  const handleFeatureNavigation = (featureId: string) => {
+    console.log("导航到功能页面:", featureId)
+    switch (featureId) {
+      case 'venue-certification':
+        setCurrentPage('venue-certification')
+        break
+      case 'referee-certification':
+        setCurrentPage('referee-certification')
+        break
+      case 'event-publishing':
+        setCurrentPage('event-publishing')
+        break
+      case 'event-simulation':
+        setCurrentPage('event-simulation')
+        break
+      default:
+        console.log("未知的功能页面:", featureId)
+    }
+  }
+
+  // 根据当前页面状态返回对应的组件
+  if (currentPage === 'event-menu') {
+    return <EventPublishingPage onNavigate={handleFeatureNavigation} onBack={navigateBack} />
+  }
+  
+  if (currentPage === 'venue-certification') {
+    return <BilliardHallRegistration onBack={navigateBack} />
+  }
+  
+  if (currentPage === 'referee-certification') {
+    return <RefereeRegistration onBack={navigateBack} />
+  }
+  
+  if (currentPage === 'event-publishing') {
+    return <EventPublishEntry onBack={navigateBack} />
+  }
+  
+  if (currentPage === 'event-simulation') {
+    return <EventSimulation onBack={navigateBack} />
+  }
   // 轮播图数据 - 可以根据不同标签页显示不同内容
   const competitionCarouselItems = [
     {
@@ -108,14 +170,14 @@ export default function BilliardsCompetitionApp() {
 
   // 根据索引获取稳定图片，避免 SSR / Hydration 不一致
   const getImageByIndex = (folder: string, index = 0) => {
-    const dir = path.join(process.cwd(), "public/mock", folder)
-    let files: string[] = []
-    try {
-      files = fs.readdirSync(dir)
-    } catch (err) {
-      console.error(err)
-      return "/placeholder.svg"
+    // 静态图片映射，基于您的public/mock目录结构
+    const imageMap: { [key: string]: string[] } = {
+      competition: ['1.png', '2.png', '3.png', '4.png', '5.png', '6.png', '7.png', '8.png', '9.png', '10.png'],
+      billiard: ['1.png', '2.png', '3.png', '4.png', '5.png', '6.png', '7.png', '8.png', '9.png', '10.png'],
+      head: ['1.png', '2.png', '3.png', '4.png', '5.png', '6.png', '7.png', '8.png', '9.png', '10.png']
     }
+    
+    const files = imageMap[folder] || []
     if (!files.length) return "/placeholder.svg"
     const file = files[index % files.length]
     return `/mock/${folder}/${file}`
@@ -416,6 +478,7 @@ export default function BilliardsCompetitionApp() {
       id: 1,
       title: "2024年华山论剑台球大赛",
       format: "美式八球",
+      competitionType: "公开赛",
       time: "2024-12-15 14:00",
       location: "华山市",
       image: "/placeholder.svg?height=80&width=80",
@@ -429,6 +492,7 @@ export default function BilliardsCompetitionApp() {
       id: 2,
       title: "少林寺台球邀请赛",
       format: "九球",
+      competitionType: "邀请赛",
       time: "2024-11-20 10:00",
       location: "嵩山市",
       image: "/placeholder.svg?height=80&width=80",
@@ -442,6 +506,7 @@ export default function BilliardsCompetitionApp() {
       id: 3,
       title: "武当山台球锦标赛",
       format: "斯诺克",
+      competitionType: "内部赛",
       time: "2024-10-08 13:00",
       location: "武当山",
       image: "/placeholder.svg?height=80&width=80",
@@ -455,6 +520,7 @@ export default function BilliardsCompetitionApp() {
       id: 4,
       title: "桃花岛台球公开赛",
       format: "美式八球",
+      competitionType: "会员赛",
       time: "2024-09-12 15:30",
       location: "桃花岛",
       image: "/placeholder.svg?height=80&width=80",
@@ -468,6 +534,7 @@ export default function BilliardsCompetitionApp() {
       id: 5,
       title: "大理台球邀请赛",
       format: "九球",
+      competitionType: "公开赛",
       time: "2024-08-25 11:00",
       location: "大理市",
       image: "/placeholder.svg?height=80&width=80",
@@ -481,6 +548,7 @@ export default function BilliardsCompetitionApp() {
       id: 6,
       title: "姑苏台球精英赛",
       format: "美式八球",
+      competitionType: "公开赛",
       time: "2025-01-15 14:00",
       location: "姑苏市",
       image: "/placeholder.svg?height=80&width=80",
@@ -494,6 +562,7 @@ export default function BilliardsCompetitionApp() {
       id: 7,
       title: "临安台球新春赛",
       format: "斯诺克",
+      competitionType: "公开赛",
       time: "2025-02-08 10:00",
       location: "临安市",
       image: "/placeholder.svg?height=80&width=80",
@@ -586,7 +655,10 @@ export default function BilliardsCompetitionApp() {
                     <h2 className="text-lg font-bold">组织你的台球赛事</h2>
                     <p className="text-green-100 text-sm">轻松创建和管理比赛</p>
                   </div>
-                  <Button className="bg-white text-green-600 hover:bg-gray-100">
+                  <Button 
+                    className="bg-white text-green-600 hover:bg-gray-100"
+                    onClick={navigateToEventMenu}
+                  >
                     <Plus className="w-4 h-4 mr-1" />
                     赛事发布
                   </Button>
@@ -628,7 +700,7 @@ export default function BilliardsCompetitionApp() {
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all-level">段位</SelectItem>
+                  <SelectItem value="all-level">档位</SelectItem>
                   <SelectItem value="beginner">初级</SelectItem>
                   <SelectItem value="intermediate">中级</SelectItem>
                 </SelectContent>
@@ -1166,6 +1238,12 @@ export default function BilliardsCompetitionApp() {
                             {event.format}
                           </span>
                         </div>
+                        <div className="flex items-center gap-1 text-xs text-gray-600">
+                          <span className="flex items-center gap-1">
+                            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                            {event.competitionType}
+                          </span>
+                        </div>
 
                         <div className="flex items-center gap-1 text-xs text-gray-600">
                           <Calendar className="w-3 h-3" />
@@ -1176,8 +1254,6 @@ export default function BilliardsCompetitionApp() {
                           <MapPin className="w-3 h-3" />
                           <span>{event.location}</span>
                         </div>
-
-                        <p className="text-xs text-gray-500 italic">{event.description}</p>
                       </div>
                     </div>
 
