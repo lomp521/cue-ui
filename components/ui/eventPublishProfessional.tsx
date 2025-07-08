@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ArrowLeft, Calendar, Trophy, Users, Clock, Save, Send, Upload, MapPin, Plus, Minus, Settings2 } from "lucide-react"
+import { ArrowLeft, Calendar, Trophy, Users, Clock, Save, Send, Upload, Plus, Minus, Settings2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -151,7 +151,6 @@ export default function EventPublishProfessional({ onBack }: EventPublishProfess
 
   const eventTypes = ["邀请赛", "公开赛[线上]", "会员赛", "内部赛"]
   const gameProjects = ["中式8球", "斯诺克", "九球", "十球"]
-  const genderOptions = ["不限", "男", "女"]
   const winRules = ["3局2胜", "5局3胜", "7局4胜"]
   const registrationTypes = ["可报名可邀请", "仅邀请"]
   const stageFormats = ["单败", "双败", "循环赛", "瑞士制"]
@@ -283,7 +282,7 @@ export default function EventPublishProfessional({ onBack }: EventPublishProfess
     }
   }
 
-  const updateStage = (index: number, field: keyof Stage, value: any) => {
+  const updateStage = (index: number, field: keyof Stage, value: string | number) => {
     setFormData(prev => ({
       ...prev,
       stages: prev.stages.map((stage, i) => 
